@@ -1,0 +1,52 @@
+
+public class Main {
+    public static void main(String[] args) {
+        int a = 0b1010; // 10 in decimal
+        int b = 0b0101; // 5 in decimal
+        int c = -10;    // -10 in decimal
+        int d = 0b0011; // 3 in decimal
+
+        System.out.println("Bitwise Operations in Java\n");
+
+        // Bitwise OR
+        System.out.println("1. Bitwise OR (|): Performs OR operation on each corresponding bit.");
+        System.out.println("   Usage: It is used for **bitwise merging** (setting bits to 1).");
+        int aORb = a | b;
+        System.out.println("   a | b = " + aORb + " (Binary: " + Integer.toBinaryString(aORb) + ")\n");
+
+        // Bitwise AND
+        System.out.println("2. Bitwise AND (&): Performs AND operation on each corresponding bit.");
+        System.out.println("   Usage: It is used for **bitwise masking** (extracting specific bits).");
+        int aANDb = a & b;
+        System.out.println("   a & b = " + aANDb + " (Binary: " + Integer.toBinaryString(aANDb) + ")\n");
+
+        // Bitwise XOR
+        System.out.println("3. Bitwise XOR (^): Performs XOR operation on each corresponding bit.");
+        System.out.println("   Usage: It is used for **bitwise toggling** (flipping bits).");
+        int aXORb = a ^ b;
+        System.out.println("   a ^ b = " + aXORb + " (Binary: " + Integer.toBinaryString(aXORb) + ")\n");
+
+        // Bitwise NOT
+        System.out.println("4. Bitwise NOT (~): Inverts all bits (1s become 0s and vice versa).");
+        System.out.println("   Before NOT: d = " + d + " (Binary: " + Integer.toBinaryString(d) + ")");
+        d = ~d;
+        System.out.println("   After NOT: d = " + d + " (Binary: " + Integer.toBinaryString(d) + ")\n");
+
+        // Left Shift (<<)
+        System.out.println("5. Left Shift (<<): Shifts bits to the left, multiplying the number by 2 per shift.");
+        int leftShift = a << 1;
+        System.out.println("   a << 1 = " + leftShift + " (Binary: " + Integer.toBinaryString(leftShift) + ")\n");
+
+        // Right Shift (>>)
+        System.out.println("6. Right Shift (>>): Shifts bits to the right, dividing the number by 2 per shift.");
+        int rightShift = a >> 1;
+        System.out.println("   a >> 1 = " + rightShift + " (Binary: " + Integer.toBinaryString(rightShift) + ")\n");
+
+        // Unsigned Right Shift (>>>)
+        System.out.println("7. Unsigned Right Shift (>>>): Shifts bits to the right, filling with **0s** (ignores sign bit).");
+        int unsignedRightShift = c >>> 1;
+        System.out.println("   c >>> 1 = " + unsignedRightShift + " (Binary: " + Integer.toBinaryString(unsignedRightShift) + ")\n");
+
+
+    }
+}
