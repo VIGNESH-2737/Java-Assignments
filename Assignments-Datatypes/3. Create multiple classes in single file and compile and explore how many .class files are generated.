@@ -1,0 +1,27 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main1 {
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+    }
+}
+
+class Main2{
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+    }
+}
+
+class Main3{
+    public static void main(String[] args) {
+        System.out.println("Try programiz.pro");
+    }
+}
+
+/* 3 Class File generated
+Main1.class
+Main2.class
+Main3.class
+*/
+
