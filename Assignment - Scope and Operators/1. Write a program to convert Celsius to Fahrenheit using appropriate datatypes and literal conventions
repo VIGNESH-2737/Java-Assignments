@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.print("Enter Celsius: ");
+        
+        float celsius = scan.nextFloat();
+        System.out.println("Celsius :"+celsius+"C");
+        
+        float fahrenheit = ((celsius*(9f/5f))+32);
+        
+        System.out.println("Fahrenheit: "+fahrenheit+"F");
+    }
+}
