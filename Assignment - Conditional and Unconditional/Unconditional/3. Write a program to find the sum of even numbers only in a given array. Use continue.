@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class SumOfEvenNumbers {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        
+        int sum = 0;
+        int input = scan.nextInt();
+        
+        for (int i=1; i<=input; i++) {
+            if (i % 2 != 0) {
+                continue;
+            }
+            sum += i;
+        }
+        System.out.println("Sum of even numbers: " + sum);
+    }
+}
