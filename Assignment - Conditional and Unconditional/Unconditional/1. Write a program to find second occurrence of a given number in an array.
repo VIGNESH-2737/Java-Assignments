@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+
+    System.out.println("Enter the size of array: ");
+    
+    int size = scan.nextInt();
+
+    int[] array = new int[size];
+    
+    for(int i=0; i<array.length; i++){
+        array[i] = scan.nextInt();
+    }
+
+    System.out.println("Enter the element to find: ");
+    
+    int key = scan.nextInt();
+    
+    boolean secondOccur = false;
+    
+    
+    for(int i=0; i<array.length; i++){
+        if(array[i] == key){
+            if(secondOccur){
+                System.out.println("Second Occurence Found at: "+(i+1));
+                return;
+            }
+            secondOccur = true;
+        }
+    }
+    
+    
+}
+}
