@@ -13,3 +13,15 @@ public class Main {
         System.out.print(outside);
     }
 }
+
+/*
+error: cannot find symbol
+        System.out.print(inside);
+                         ^
+  symbol:   variable inside
+  location: class Main
+1 error
+ERROR!
+error: compilation failed
+
+*/
