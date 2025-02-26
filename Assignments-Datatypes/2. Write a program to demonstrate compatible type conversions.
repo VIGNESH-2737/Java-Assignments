@@ -1,0 +1,63 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        
+        // Widening (No Loss) - Implicit Type Conversion.
+        
+        byte byteValue = 127; // 8-bit integer [-128, 127]
+        
+        short shortValue = byteValue; // 16-bit integer [-2^15, 2^15-1]
+        
+        int intValue = shortValue; // 32-bit integer [-2^31, 2^31-1]
+        
+        long longValue = intValue; // 64-bit integer [-2^63, 2^63-1]
+        
+        float floatValue = intValue; // 32-bit floating-point (approx. ±[2^128])
+        
+        double doubleValue = floatValue; // 64-bit floating-point (approx. ±[2^1024])
+        
+        System.out.println(byteValue+" -> "+shortValue+" -> "+intValue+" -> "+longValue+" -> "+floatValue+" -> "+doubleValue); 
+        
+         // Narrowing (Data Loss May Occur) - Explicit Type Conversion
+        
+        double largeDouble = 12345.6789; // 64-bit floating-point
+        
+        float floatFromDouble = (float) largeDouble; // Explicit cast to 32-bit float
+        
+        long longFromFloat = (long) floatFromDouble; // Explicit cast to 64-bit integer
+        
+        int intFromLong = (int) longFromFloat; // Explicit cast to 32-bit integer
+        
+        short shortFromInt = (short) intFromLong; // Explicit cast to 16-bit integer
+        
+        byte byteFromShort = (byte) shortFromInt; // Explicit cast to 8-bit integer
+        
+        
+        System.out.println(largeDouble+" -> "+floatFromDouble+" -> "+longFromFloat+" -> "+intFromLong+" -> "+shortFromInt+" -> "+byteFromShort);
+        
+        
+        // Type Conversion:
+        // Widening: Converting a smaller data type to a larger data type (No Data Loss)
+        // Narrowing: Converting a larger data type to a smaller data type (May Cause Data Loss)
+        
+        //  Narrowing (N) or Widening (W)
+        /*       byte   short   int   float  double
+        byte      -       W      W       W      W 
+        short     N       -      W       W      W
+        int       N       N      -       W      W
+        float     N       N      N       -      W
+        double    N       N      N       N      -
+        */
+        
+        // Data Conversion Loss Possibility:
+        /*       byte   short   int   float  double
+        byte     full   full    full  full   full 
+        short    loss   full    full  full   full
+        int      loss   loss    full  full   full
+        float    loss   loss    loss  full   full
+        double   loss   loss    loss  loss   full
+        */
+    }
+}
