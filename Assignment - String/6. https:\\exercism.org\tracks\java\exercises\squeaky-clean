@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        
+        System.out.println(capitailizeString(str));
+        
+    }
+    
+    public static String capitailizeString(String str){
+        
+        String result = str.replaceAll("[^a-zA-Z0-9]","");
+        
+        result = str.replaceAll(" ","_");
+        
+        
+        result = result.replaceAll("-","");
+        result = result.replaceAll("4","a");
+        result = result.replaceAll("3","e");
+        result = result.replaceAll("0","o");
+        result = result.replaceAll("7","l");
+        //str.replaceAll("","");
+        
+        return result;
+    }
+}
