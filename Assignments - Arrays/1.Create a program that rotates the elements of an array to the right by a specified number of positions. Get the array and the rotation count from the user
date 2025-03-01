@@ -1,0 +1,64 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Enter the size of array");
+        
+        int size = scan.nextInt();
+        
+        int[] arr = new int[size];
+        
+        System.out.println("Enter the Array elements");
+        
+        for(int i=0; i<size; i++){
+            arr[i] = scan.nextInt();
+        }
+        
+        System.out.println("Enter the number of rotations");
+        
+        int rotateNum = scan.nextInt();
+        
+        rotateNum = rotateNum%arr.length;
+        
+        System.out.println("The Given Array: ");
+        System.out.println(Arrays.toString(arr));
+        
+        System.out.println();
+        
+        System.out.println("Left Rotation for "+rotateNum+" times.");
+        System.out.println(Arrays.toString(leftRotate(arr,rotateNum)));
+        
+        System.out.println();
+        System.out.println("Right Rotation for "+rotateNum+" times.");
+        System.out.println(Arrays.toString(rightRotate(arr,rotateNum)));
+    }
+    
+    public static int[] leftRotate(int[] arr, int rotateNum){
+        int[] result = new int[arr.length];
+        for(int i=rotateNum; i<arr.length; i++){
+            result[i-rotateNum] = arr[i];
+        }
+        
+        for(int i=0; i<rotateNum; i++){
+            result[arr.length-rotateNum+i] = arr[i];
+        }
+        
+        return result;
+    }
+    
+    public static int[] rightRotate(int[] arr, int rotateNum){
+        int[] result = new int[arr.length];
+        for(int i = 0; i < rotateNum; i++){
+            result[i] = arr[arr.length - rotateNum + i];
+        }
+        
+        for(int i = rotateNum; i < arr.length; i++){
+            result[i] = arr[i - rotateNum];
+        }
+        
+        return result;
+    }
+    
+}
