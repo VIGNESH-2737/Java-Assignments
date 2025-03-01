@@ -1,0 +1,16 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        
+        System.out.println(capitailizeString(str));
+        
+    }
+    
+    public static String capitailizeString(String str){
+        return str.substring(0,1).toUpperCase() + str.substring(1);
+    }
+}
