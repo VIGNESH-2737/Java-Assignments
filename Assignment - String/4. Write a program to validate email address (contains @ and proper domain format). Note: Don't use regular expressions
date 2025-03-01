@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        
+        System.out.println(validEmail(str));
+        
+    }
+    
+    public static boolean validEmail(String str){
+        
+        if(str.contains("@.") || str.contains("@ ") || str.contains("..") || str.startsWith("@")){
+            return false;
+        }
+        
+        
+        
+        if(str.contains("@") && str.contains(".")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
