@@ -1,0 +1,27 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        String str = scan.next();
+        
+        System.out.println(countString(str));
+        
+    }
+    
+    public static int countString(String str){
+        int count=0;
+        
+        for(char c: str.toCharArray()){
+            if(c == 'a'||c == 'e'||c == 'i'||
+            c == 'o'||c == 'u'){
+                count++;
+            }
+        }
+        return count;
+    }
+}
