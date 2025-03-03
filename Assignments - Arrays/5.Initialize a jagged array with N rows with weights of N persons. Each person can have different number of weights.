@@ -1,55 +1,79 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class JaggedArrayWeights {
+class Main {
+    static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter number of persons (N): ");
-        int N = scanner.nextInt();
+        System.out.println("Enter the max Number of Persons: ");
+        int N = scan.nextInt();
 
-        int[][] weights = new int[N][];
-        
-        for (int i = 0; i < N; i++) {
-            System.out.print("Enter number of weights for person " + (i + 1) + ": ");
-            int numWeights = scanner.nextInt();
-            weights[i] = new int[numWeights];
+        int[][] personWeight = new int[N][];
 
-            System.out.println("Enter the weights for person " + (i + 1) + ":");
-            for (int j = 0; j < numWeights; j++) {
-                weights[i][j] = scanner.nextInt();
+        int choice = 0;
+
+        while (choice != 3) {
+
+            System.out.println("\nEnter your choice:");
+            System.out.println("1. Enter weight for a person");
+            System.out.println("2. Get minimum weight of a person");
+            System.out.println("3. Exit");
+
+            choice = scan.nextInt();
+
+            if (choice == 1) {
+                System.out.println("Enter the person id to enter weight");
+                int id = scan.nextInt();
+
+                if (id >= 1 && id <= N) {
+                    enterWeight(personWeight, id);
+                } else {
+                    System.out.println("Invalid person ID.");
+                }
+
+            } else if (choice == 2) {
+                System.out.println("Enter the person id to get minimum weight");
+                int id = scan.nextInt();
+
+                if (id >= 1 && id <= N && personWeight[id - 1] != null) {
+                    System.out.println("The minimum weight of person " + id + " is " + getMinimum(personWeight, id));
+                } else {
+                    System.out.println("Invalid person ID or no weights entered.");
+                }
+
+            } else if (choice == 3) {
+                System.out.println("Exiting...");
+            } else {
+                System.out.println("Invalid choice.");
             }
         }
-
-        enterWeight(weights, 1, 0, 65);
-        int minWeight = getMinimumWeight(weights, 1);
-        System.out.println("Minimum weight of person 2: " + minWeight);
-
-        scanner.close();
     }
 
-    public static void enterWeight(int[][] weights, int personIndex, int weightIndex, int newWeight) {
-        if (personIndex >= 0 && personIndex < weights.length 
-            && weightIndex >= 0 && weightIndex < weights[personIndex].length) {
-            weights[personIndex][weightIndex] = newWeight;
-            System.out.println("Weight updated successfully.");
-        } else {
-            System.out.println("Invalid person or weight index.");
+    public static void enterWeight(int[][] weights, int userId) {
+
+        System.out.println("Enter Number of weights for the Person " + userId);
+
+        int nWeights = scan.nextInt();
+
+        int index = userId - 1;
+
+        weights[index] = new int[nWeights]; 
+
+        System.out.println("Enter the weights of person " + userId);
+        for (int i = 0; i < nWeights; i++) {
+            weights[index][i] = scan.nextInt();
         }
     }
 
-    public static int getMinimumWeight(int[][] weights, int personIndex) {
-        if (personIndex < 0 || personIndex >= weights.length) {
-            System.out.println("Invalid person index.");
-            return -1;
+    public static int getMinimum(int[][] weights, int userId) {
+
+        int min = Integer.MAX_VALUE;
+        int index = userId - 1;
+
+        for (int i = 0; i < weights[index].length; i++) {
+            min = Math.min(min, weights[index][i]);
         }
 
-        int min = weights[personIndex][0];
-        for (int weight : weights[personIndex]) {
-            if (weight < min) {
-                min = weight;
-            }
-        }
         return min;
     }
 }
