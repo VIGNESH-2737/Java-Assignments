@@ -1,0 +1,29 @@
+package com.vignesh.zohotask;
+
+public class BookDemo {
+	
+	public static void main() {
+		Book compRefJava = new Book();
+		
+		compRefJava.setBookId(1);
+		compRefJava.setTitle("Java: The Complete Reference");
+		compRefJava.setAuthor("Herbert Schildt");
+		compRefJava.setIsbn("978-93-5532-647-8");;
+		compRefJava.setPublisher("McGrawHill");
+		compRefJava.setPublisherYear(2024);
+		compRefJava.setPrice(1780);
+		compRefJava.setGenre("Technical Book");
+		compRefJava.setLanguage("English");
+		compRefJava.setPageCount(1246);
+		compRefJava.setAvailable(true);
+		
+		compRefJava.toString();
+		
+		Book crackCode = new Book(2, "Cracking the Coding Interview", "Gayle Laakmann Mcdowell"
+				,"978-0-9847828-5-7", "CareerCup", 2015, 400, "Technical Book", "English", 
+				696, true);
+		
+		crackCode.toString();
+		
+	}
+}
