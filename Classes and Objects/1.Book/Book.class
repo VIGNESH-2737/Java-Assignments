@@ -1,0 +1,133 @@
+package com.vignesh.zohotask;
+
+public class Book {
+	
+	private int bookId;
+	
+	private String title;
+	private String isbn;
+	private String author;
+	private String publisher;
+	private int publisherYear;
+	private int price;
+	private String genre;
+	private String language;
+	private int pageCount;
+	private boolean available;
+
+	public Book() {} // default constructor or parameterless constructor
+	
+	public Book(int bookId, String title, String isbn, String author, String publisher, int publisherYear, int price,  // parameterized constructor
+			String genre, String language, int pageCount, boolean available) {
+		super();
+		this.bookId = bookId;
+		this.title = title;
+		this.isbn = isbn;
+		this.author = author;
+		this.publisher = publisher;
+		this.publisherYear = publisherYear;
+		this.price = price;
+		this.genre = genre;
+		this.language = language;
+		this.pageCount = pageCount;
+		this.available = available;
+	}
+
+	
+	public int getBookId() {
+		return bookId;
+	}
+	
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getIsbn() {
+		return isbn;
+	}
+	
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+	
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	public String getPublisher() {
+		return publisher;
+	}
+	
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+	
+	public int getPublisherYear() {
+		return publisherYear;
+	}
+	
+	public void setPublisherYear(int publisherYear) {
+		this.publisherYear = publisherYear;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	public String getGenre() {
+		return genre;
+	}
+	
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	
+	public String getLanguage() {
+		return language;
+	}
+	
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	
+	public int getPageCount() {
+		return pageCount;
+	}
+	
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
+	}
+	
+	public boolean isAvailable() {
+		return available;
+	}
+	
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+	
+	// toString() method
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", isbn=" + isbn + ", author=" + author + ", publisher="
+				+ publisher + ", publisherYear=" + publisherYear + ", price=" + price + ", genre=" + genre
+				+ ", language=" + language + ", pageCount=" + pageCount + ", available=" + available + "]";
+	}
+
+}
