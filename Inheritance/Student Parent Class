@@ -1,0 +1,200 @@
+/*
+2. Design a Student Parent class and ZSGSStudent Child class. 
+Create constructors in both class with varying number of parameters. 
+Call parent constructor from child constructor.  
+Try experimenting by creating child object using parent constructor.
+*/
+
+import java.util.*;
+
+public class StudentDemo{
+    public static void main(String[] args){
+        Student student = new ZSGSStudent();
+        student.printInfo();
+    }
+}
+
+/*
+2. Design a Student Parent class and ZSGSStudent Child class. Create constructors in both class with varying number of parameters. Call parent constructor from child constructor.  Try experimenting by creating child object using parent constructor.
+
+*/
+
+
+class Student{
+    private int studentId;
+    private String studentName;
+    private String department;
+    private String className;
+    //private String[] subjects;
+    
+    public Student(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter Student Id: ");
+        this.studentId = scan.nextInt();
+        System.out.println("Enter Student Name: ");
+        this.studentName = scan.next();
+        System.out.println("Enter Student Department: ");
+        this.department = scan.next();
+        System.out.println("Enter the Name of Class");
+        this.className = scan.next();
+        
+        scan.close();
+    }
+    
+    public Student(int studentId, String studentName, String department, String className){
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.department = department;
+        this.className = className;
+        
+        this.play();
+        this.learn();
+        this.enjoy();
+    }
+    
+    public int getStudentId(){
+        return this.studentId;
+    }
+    
+    public String getStudentName(){
+        return this.studentName;
+    }
+    
+    public String getDepartment(){
+        return this.studentName;
+    }
+    
+    public String getClassName(){
+        return this.studentName;
+    }
+    
+    public void setStudentId(int studentId){
+        this.studentId = studentId;
+    }
+    
+    public void setStudentName(String studentName){
+        this.studentName = studentName;
+    }
+    
+    public void setDepartment(String department){
+        this.department = department;
+    }
+    
+    public void setClassName(String className){
+        this.className = className;
+    }
+    
+    public void learn(){
+        System.out.println("Student must learn something");
+    }
+    
+    public void learn(String subject){
+        System.out.println("This Student is learning "+subject+".");
+    }
+    
+    public void play(String game){
+        System.out.println("This student is play "+game+".");
+    }
+    
+    public void play(){
+        System.out.println("Student must play everyday");
+    }
+    
+    public void enjoy(){
+        System.out.println("Student must enjoy life");
+    }
+    
+    @Override
+    public String toString(){
+        return "[Student] StudentId : "+studentId+" StudentName : "+studentName+" Student Deparment : "+department+" Student Class Name :"+className+" .";
+    }
+    
+    public void printInfo(){
+        System.out.println(this.toString());
+    }
+    
+    
+}
+
+class ZSGSStudent extends Student{
+    
+    private List<String> subjects = new ArrayList<>(Arrays.asList("Java", "Art of Problem Solving", "JavaScript", "SQL"));
+
+    
+    public ZSGSStudent(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter Student Id: ");
+        super.setStudentId(scan.nextInt());
+        
+        System.out.println("Enter Student Name: ");
+        super.setStudentName(scan.next());
+        // System.out.println("Enter Student Department: ");
+        super.setDepartment("ZSGS");
+        
+        System.out.println("Enter the Name of Class");
+        super.setClassName(scan.next());
+        
+        scan.close();
+    }
+    
+    public ZSGSStudent(int studentId, String studentName, String department, String className){
+        super(studentId, studentName, "ZSGS", "GS-2025");
+    }
+    
+    public String getSubjects(){
+        return subjects.toString();
+    }
+    
+    public void addSubjects(String subject){
+        subjects.add(subject);
+    }
+    
+    public void removeSubjects(String subject){
+        subjects.remove(subject);
+    }
+    
+    public void setDepartment(){
+        super.setDepartment("ZSGS");
+    }
+    
+    public void setClassName(String className){
+        super.setClassName(className);
+    }
+    
+    @Override
+    public void learn(){
+        System.out.println("ZSGS Students are learning ");
+        for(String subject: subjects){
+            System.out.print(subjects+" ");
+        }
+    }
+    
+    @Override
+    public void play(){
+        System.out.println("Student must play everyday");
+        System.out.println("ZSGS Student must play everyday with Programming and Problem Solving. (also with life and games).");
+    }
+    
+    @Override
+    public void enjoy(){
+        System.out.println("ZSGS Student must enjoy Programming.");
+        
+        System.out.println("ZSGS Student must enjoy Problem Solving");
+        
+        System.out.println("ZSGS Student must enjoy Learning and Upskilling.");
+        
+        System.out.println("Student must enjoy playing");
+        
+        System.out.println("Student must enjoy life");
+    }
+    
+    @Override
+    public String toString(){
+        return "[Student] StudentId : "+super.getStudentId()+" StudentName : "+super.getStudentName()+" Student Deparment : "+super.getDepartment()+" Student Class Name :"+super.getClassName()+" Subject "+(subjects.toString())+".";
+    }
+    
+    public void printInfo(){
+        System.out.println(this.toString());
+    }
+}
+
