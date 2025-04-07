@@ -1,0 +1,92 @@
+abstract class Document {
+    protected String name;
+
+    public Document(String name) {
+        this.name = name;
+    }
+
+    public void open() {
+        System.out.println("Opening document: " + name);
+    }
+
+    public void close() {
+        System.out.println("Closing document: " + name);
+    }
+
+    public abstract String getType();
+    public abstract String getContentSummary();
+}
+
+class PDFDocument extends Document {
+    private int numberOfPages;
+
+    public PDFDocument(String name, int numberOfPages) {
+        super(name);
+        this.numberOfPages = numberOfPages;
+    }
+
+    @Override
+    public String getType() {
+        return "PDF Document";
+    }
+
+    @Override
+    public String getContentSummary() {
+        return "PDF with " + numberOfPages + " pages.";
+    }
+}
+
+class TextDocument extends Document {
+    private String content;
+
+    public TextDocument(String name, String content) {
+        super(name);
+        this.content = content;
+    }
+
+    @Override
+    public String getType() {
+        return "Text Document";
+    }
+
+    @Override
+    public String getContentSummary() {
+        return "Text content: \"" + content.substring(0, Math.min(30, content.length())) + "...\"";
+    }
+}
+
+class ImageDocument extends Document {
+    private String resolution;
+
+    public ImageDocument(String name, String resolution) {
+        super(name);
+        this.resolution = resolution;
+    }
+
+    @Override
+    public String getType() {
+        return "Image Document";
+    }
+
+    @Override
+    public String getContentSummary() {
+        return "Image with resolution: " + resolution;
+    }
+}
+
+public class DocumentManager {
+    public static void main(String[] args) {
+        Document[] documents = new Document[3];
+
+        documents[0] = new PDFDocument("sample.pdf", 12);
+        documents[1] = new TextDocument("notes.txt", "This is a simple text document for demonstration.");
+        documents[2] = new ImageDocument("photo.jpg", "1920x1080");
+
+        for (Document doc : documents) {
+            System.out.println("\n--- " + doc.getType() + " ---");
+            doc.open();
+            System.out.println("Summary: " + doc.getContentSummary());
+            doc.close();
+        }
+    }
+}
