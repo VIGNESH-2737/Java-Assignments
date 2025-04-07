@@ -1,0 +1,87 @@
+abstract class Movie {
+    protected String title;
+    protected int duration; // in minutes
+
+    public Movie(String title, int duration) {
+        this.title = title;
+        this.duration = duration;
+    }
+
+    public void printBasicInfo() {
+        System.out.println("Title: " + title);
+        System.out.println("Duration: " + duration + " minutes");
+    }
+
+    public abstract String getGenre();
+    public abstract double getRating();
+    public abstract String getDescription();
+}
+
+class ActionMovie extends Movie {
+    private double rating;
+    private String stuntDirector;
+
+    public ActionMovie(String title, int duration, double rating, String stuntDirector) {
+        super(title, duration);
+        this.rating = rating;
+        this.stuntDirector = stuntDirector;
+    }
+
+    @Override
+    public String getGenre() {
+        return "Action";
+    }
+
+    @Override
+    public double getRating() {
+        return rating;
+    }
+
+    @Override
+    public String getDescription() {
+        return "High-octane action with stunts by " + stuntDirector + ".";
+    }
+}
+
+class ComedyMovie extends Movie {
+    private double rating;
+    private String leadComedian;
+
+    public ComedyMovie(String title, int duration, double rating, String leadComedian) {
+        super(title, duration);
+        this.rating = rating;
+        this.leadComedian = leadComedian;
+    }
+
+    @Override
+    public String getGenre() {
+        return "Comedy";
+    }
+
+    @Override
+    public double getRating() {
+        return rating;
+    }
+
+    @Override
+    public String getDescription() {
+        return "A hilarious comedy starring " + leadComedian + ".";
+    }
+}
+
+public class MovieManager {
+    public static void main(String[] args) {
+        Movie m1 = new ActionMovie("Fast & Furious", 130, 4.3, "Andy Armstrong");
+        Movie m2 = new ComedyMovie("The Mask", 95, 4.7, "Jim Carrey");
+
+        Movie[] movies = { m1, m2 };
+
+        for (Movie movie : movies) {
+            System.out.println("\n--- Movie Info ---");
+            movie.printBasicInfo();
+            System.out.println("Genre: " + movie.getGenre());
+            System.out.println("Rating: " + movie.getRating());
+            System.out.println("Description: " + movie.getDescription());
+        }
+    }
+}
