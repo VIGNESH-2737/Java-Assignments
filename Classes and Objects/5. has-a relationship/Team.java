@@ -4,6 +4,7 @@ public class Team {
 	private String name;
 	private String city;
 	private String division;
+	private ArrayList<Player> players;
 	
 	public Team() {
 		//playGame();
