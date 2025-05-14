@@ -1,6 +1,6 @@
 package com.vignesh.zohotask;
 
-public class Player extends Team{
+public class Player {
 	private String name;
 	private String position;
 	private int jerseyNumber;
