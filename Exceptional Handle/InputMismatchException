@@ -4,8 +4,11 @@ class Main {
         int n;
         Scanner scan = new Scanner(System.in);
         try{
+                System.out.println("Enter Between 1 - 20");
                 int x = scan.nextInt();
+                if(x > 20 || x < 1) throws new InputMismatchException();
                 System.out.println(x);
+                
         }catch(InputMismatchException e){
             System.out.println("InputMismatchException Handled");
         }
