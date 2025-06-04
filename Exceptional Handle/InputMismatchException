@@ -1,0 +1,13 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int n;
+        Scanner scan = new Scanner(System.in);
+        try{
+                int x = scan.nextInt();
+                System.out.println(x);
+        }catch(InputMismatchException e){
+            System.out.println("InputMismatchException Handled");
+        }
+    }
+}
