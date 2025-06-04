@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Main{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        String s = scan.next();
+        try{
+        checkSleepy(s);
+        }catch(SleepException e){
+            System.out.println("You should not sleep");
+        }
+        System.out.println(".........");
+    }
+    
+    public static void checkSleepy(String status) throws SleepException{
+        if(status.equals("sleepy"))
+            throw new SleepException();
+    }
+}
+
+class SleepException extends Exception{
+    SleepException(){
+        super("You should not sleep in class");
+    }
+}
